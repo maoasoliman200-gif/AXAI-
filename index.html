@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8f4ed">
+<title>AXIA — Learn · Understand · Grow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f8f4ed;--cream2:#f1eadf;--navy:#102846;--navy2:#193958;--gold:#a77b3d;--gold-light:#d6bd91;--ink:#1c2b3d;--muted:#73777c;--line:rgba(16,40,70,.18);--white:#fffdf9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--navy);font-family:"DM Sans",sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 18%,rgba(255,255,255,.88),transparent 55%),linear-gradient(135deg,rgba(214,189,145,.06),transparent 42%)}
+button{font:inherit}.topbar{height:88px;padding:0 clamp(20px,6vw,92px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(248,244,237,.88);backdrop-filter:blur(12px);position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:14px;color:var(--navy);text-decoration:none}.brand-logo{width:58px;height:48px}.brand-word{font:500 35px "Playfair Display",serif;letter-spacing:5px;position:relative}.brand-word:after{content:"";position:absolute;left:0;right:-15px;bottom:-7px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.nav{display:flex;align-items:center;gap:clamp(18px,3.8vw,58px)}.nav a{color:var(--navy);text-decoration:none;font:500 17px "Playfair Display",serif;position:relative}.nav a:after{content:"";position:absolute;left:0;bottom:-10px;width:0;height:2px;background:var(--gold);transition:.25s}.nav a:hover:after,.nav a.active:after{width:100%}
+.story-star{width:43px;height:43px;border:1px solid rgba(167,123,61,.45);border-radius:50%;background:transparent;color:var(--gold);display:grid;place-items:center;cursor:pointer;transition:.25s}.story-star:hover{background:var(--navy);color:#f8e5bd;transform:rotate(12deg)}.story-star svg{width:22px}
+.hero{min-height:660px;display:flex;align-items:center;justify-content:center;text-align:center;padding:65px 22px 78px;position:relative;overflow:hidden}
+.hero-inner{max-width:850px;position:relative;z-index:1}.hero-emblem{width:230px;height:145px;margin:0 auto 8px;position:relative}.hero-emblem svg{width:100%;height:100%;overflow:visible}.hero-title{font:500 clamp(76px,11vw,132px)/.95 "Playfair Display",serif;letter-spacing:10px;margin:0 auto;position:relative;display:inline-block}.hero-title:after{content:"";position:absolute;height:1px;left:-8%;right:-12%;bottom:-9px;background:linear-gradient(90deg,transparent,var(--gold),var(--navy),var(--gold),transparent);transform:rotate(-3deg)}
+.tagline{font:italic 500 clamp(18px,2.5vw,27px) "Playfair Display",serif;letter-spacing:3px;margin:35px 0 30px}.tagline span{color:var(--gold);padding:0 12px}.divider{display:flex;align-items:center;justify-content:center;gap:13px;margin:0 auto 25px;color:var(--gold)}.divider:before,.divider:after{content:"";height:1px;width:145px;background:linear-gradient(90deg,transparent,var(--gold))}.divider:after{transform:rotate(180deg)}.divider b{font-size:21px;font-weight:400}
+.hero-copy{font:italic 500 clamp(19px,2.5vw,26px)/1.65 "Playfair Display",serif;color:#1b2b40;max-width:780px;margin:0 auto 40px}.hero-copy em{color:var(--gold);font-style:italic}
+.cta{display:inline-flex;align-items:center;gap:22px;padding:17px 31px;border-radius:40px;background:var(--navy);color:white;text-decoration:none;font:500 18px "Playfair Display",serif;box-shadow:0 12px 30px rgba(16,40,70,.13);transition:.25s}.cta:hover{background:var(--navy2);transform:translateY(-3px);box-shadow:0 16px 32px rgba(16,40,70,.2)}.cta span{font:24px "DM Sans"}
+.wave{position:absolute;bottom:-3px;left:0;width:100%;height:145px;pointer-events:none}.wave path{fill:none;stroke-width:1.1}.wave .goldline{stroke:rgba(167,123,61,.5)}.wave .blueline{stroke:rgba(16,40,70,.4)}
+.tools-section{padding:85px clamp(20px,7vw,110px) 100px;background:rgba(255,253,249,.72);border-top:1px solid rgba(16,40,70,.09)}
+.section-top{text-align:center;margin-bottom:38px}.eyebrow{font:600 10px "DM Sans";letter-spacing:3px;color:var(--gold);text-transform:uppercase}.section-top h2{font:500 clamp(34px,5vw,48px) "Playfair Display",serif;margin:12px 0}.section-top p{font:14px "DM Sans";color:var(--muted);margin:0}
+.tools-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tool-card{background:var(--cream);border:1px solid rgba(16,40,70,.14);border-radius:5px;padding:25px 21px 22px;min-height:215px;text-align:left;cursor:pointer;position:relative;transition:.25s;color:var(--navy)}
+.tool-card:hover{background:#fffdf9;border-color:var(--gold-light);transform:translateY(-5px);box-shadow:0 16px 34px rgba(37,47,62,.08)}
+.tool-num{font:500 11px "DM Sans";letter-spacing:2px;color:var(--gold)}.tool-icon{width:43px;height:43px;margin:21px 0 16px;border:1px solid rgba(167,123,61,.48);border-radius:50%;display:grid;place-items:center;color:var(--gold)}.tool-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round}
+.tool-card h3{font:500 21px "Playfair Display",serif;margin:0 0 8px}.tool-card p{font:12px/1.8 "DM Sans";color:var(--muted);margin:0;max-width:220px}.tool-arrow{position:absolute;bottom:20px;right:20px;color:var(--gold);font-size:20px}
+.workspace{max-width:900px;margin:28px auto 0;padding:25px;background:white;border:1px solid var(--line);display:none}.workspace.show{display:block}.workspace-head{display:flex;justify-content:space-between;align-items:center}.workspace h3{font:500 23px "Playfair Display",serif;margin:0}.close{border:1px solid var(--line);background:transparent;color:var(--navy);padding:7px 12px;cursor:pointer}.workspace textarea{width:100%;min-height:130px;margin:18px 0 12px;padding:14px;border:1px solid var(--line);background:var(--cream);resize:vertical;font:14px "DM Sans";outline:none}.workspace textarea:focus{border-color:var(--gold)}.workspace-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px}.workspace small{color:var(--muted);font-size:11px}.run{border:0;background:var(--navy);color:white;padding:11px 22px;cursor:pointer}.demo-result{display:none;margin-top:15px;padding:15px;background:var(--cream2);font:13px/1.8 "DM Sans";color:var(--ink)}
+footer{padding:26px clamp(20px,7vw,110px);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px;color:#777a7e;font-size:10px;letter-spacing:.4px}footer strong{font:500 22px "Playfair Display",serif;letter-spacing:3px;color:var(--navy)}.signature{font:italic 500 15px "Playfair Display",serif;color:var(--navy)}
+.modal-back{position:fixed;inset:0;background:rgba(11,25,43,.42);backdrop-filter:blur(4px);z-index:20;opacity:0;pointer-events:none;transition:.25s}.modal-back.open{opacity:1;pointer-events:auto}.story-modal{position:fixed;z-index:21;left:50%;top:50%;transform:translate(-50%,-46%);width:min(620px,92vw);max-height:85vh;overflow:auto;background:var(--cream);border:1px solid var(--gold-light);padding:clamp(25px,5vw,48px);box-shadow:0 25px 80px #07172d40;opacity:0;pointer-events:none;transition:.25s}.story-modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}.modal-star{font-size:26px;color:var(--gold);text-align:center}.story-modal h2{text-align:center;font:500 34px "Playfair Display",serif;margin:9px 0 7px}.modal-sub{text-align:center;color:var(--gold);font:600 9px "DM Sans";letter-spacing:2.5px;margin-bottom:25px}.story-modal p{font:15px/2 "DM Sans";color:#46505d;margin:0 0 14px}.story-sign{border-top:1px solid var(--gold-light);margin-top:25px;padding-top:17px;display:flex;justify-content:space-between;align-items:center;gap:10px}.story-sign b{font:500 19px "Playfair Display",serif;letter-spacing:2px}.story-sign span{font:italic 14px "Playfair Display",serif;color:var(--gold)}
+@media(max-width:850px){.tools-grid{grid-template-columns:repeat(2,1fr)}.hero{min-height:610px}.nav{gap:20px}.nav a{font-size:15px}}
+@media(max-width:560px){.topbar{height:72px;padding:0 15px}.brand-logo{width:42px}.brand-word{font-size:26px;letter-spacing:3px}.nav{gap:12px}.nav a{display:none}.story-star{width:39px;height:39px}.hero{min-height:590px;padding-top:55px}.hero-emblem{width:175px;height:115px}.hero-title{font-size:73px;letter-spacing:5px}.tagline{font-size:17px;letter-spacing:1px;margin-top:30px}.hero-copy{font-size:19px}.divider:before,.divider:after{width:80px}.cta{font-size:16px;padding:15px 24px}.tools-section{padding:65px 17px}.tools-grid{gap:10px}.tool-card{padding:18px 14px;min-height:205px}.tool-card h3{font-size:18px}.tool-card p{font-size:11px}.tool-icon{margin:17px 0 13px}footer{flex-direction:column;text-align:center}.workspace-bottom{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="#home" aria-label="AXIA home">
+<svg class="brand-logo" viewBox="0 0 90 65" fill="none" aria-hidden="true"><path d="M5 27Q23 16 43 31Q63 16 84 27M9 36Q26 26 43 42Q61 26 80 36M15 45Q30 37 43 52Q57 37 74 45" stroke="#102846" stroke-width="3.2"/><path d="M43 3L46 18L58 21L46 24L43 38L40 24L28 21L40 18Z" fill="#B58A4E"/><path d="M43 52Q44 57 50 59" stroke="#A77B3D" stroke-width="1"/></svg>
+<span class="brand-word">AXIA</span>
+</a>
+<nav><a class="active" href="#home">Home</a><a href="#tools">Tools</a><a href="#about" id="aboutNav">About</a><a href="mailto:hello@axia.example">Contact</a><button class="story-star" id="storyButton" aria-label="Discover the story of AXIA" title="The story behind AXIA"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 1.5 2.5 7 7 3.5-7 2.5-2.5 8-2.5-8L2.5 12l7-3.5z"/></svg></button></nav>
+</header>
+<main id="home">
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-emblem"><svg viewBox="0 0 260 160" fill="none"><path d="M17 93Q68 56 130 111Q190 56 243 93M26 107Q75 74 130 126Q185 74 234 107M44 119Q87 95 130 139Q173 95 216 119" stroke="#102846" stroke-width="6"/><path d="M130 7L137 54L178 62L137 71L130 119L122 71L82 62L122 54Z" fill="#B58A4E"/><path d="M130 13L130 108" stroke="#F8F4ED" stroke-width="1.2" opacity=".8"/></svg></div>
+<h1 class="hero-title">AXIA</h1>
+<div class="tagline">Learn <span>•</span> Understand <span>•</span> Grow</div>
+<div class="divider"><b>✦</b></div>
+<p class="hero-copy">A smart learning platform, built to support your journey<br>with knowledge and <em>AI.</em></p>
+<a class="cta" href="#tools">Explore Tools <span>→</span></a>
+</div>
+<svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none"><path class="goldline" d="M0 30C260 55 350 145 650 112S1120 100 1440 15"/><path class="blueline" d="M0 83C270 82 420 155 690 128S1160 135 1440 65"/></svg>
+</section>
+<section class="tools-section" id="tools">
+<div class="section-top"><div class="eyebrow">YOUR LEARNING SPACE</div><h2>Tools designed around you</h2><p>Choose the support you need and make every study session count.</p></div>
+<div class="tools-grid">
+<button class="tool-card" data-tool="Lesson Summarizer"><span class="tool-num">01 / ORGANIZE</span><span class="tool-icon"><svg viewBox="0 0 24 24"><path d="M6 3.5h8l4 4V21H6zM14 3.5v4h4M9 12h6M9 15.5h6"/></svg></span><h3>Lesson Summarizer</h3><p>Turn long lessons into clear, structured key points.</p><span class="tool-arrow">↗</span></button>
+<button class="tool-card" data-tool="Smart Explainer"><span class="tool-num">02 / UNDERSTAND</span><span class="tool-icon"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5zM4 5.5v16M8 7h8M8 10.5h6"/></svg></span><h3>Smart Explainer</h3><p>Explore difficult ideas through simple, step-by-step explanations.</p><span class="tool-arrow">↗</span></button>
+<button class="tool-card" data-tool="Ask AXIA"><span class="tool-num">03 / DISCOVER</span><span class="tool-icon"><svg viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2v-9.5A7.5 7.5 0 1 1 20 11.5Z"/><path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-.9.9-1.9 1.1-1.9 2.4M12 16.3v.1"/></svg></span><h3>Ask AXIA</h3><p>Ask questions, explore ideas, and keep your curiosity moving.</p><span class="tool-arrow">↗</span></button>
+<button class="tool-card" data-tool="Knowledge Check"><span class="tool-num">04 / PRACTICE</span><span class="tool-icon"><svg viewBox="0 0 24 24"><path d="M6 3h13v18H6zM3 6v15h13M9 9h7M9 12h4M9 16l2 2 4-4"/></svg></span><h3>Knowledge Check</h3><p>Practice what you have learned and identify what to review next.</p><span class="tool-arrow">↗</span></button>
+</div>
+<div class="workspace" id="workspace"><div class="workspace-head"><h3 id="workspaceTitle">Your workspace</h3><button class="close" id="closeWorkspace">Close ×</button></div><textarea id="prompt" placeholder="Type a question or paste part of your lesson here..."></textarea><div class="workspace-bottom"><small>This is a visual prototype. AI features are not connected yet.</small><button class="run" id="runDemo">Continue</button></div><div class="demo-result" id="demoResult">AXIA's workspace is ready for an AI connection. Once a secure AI service is connected, your learning response will appear here. Always check important information against your trusted study materials.</div></div>
+</section>
+</main>
+<footer><strong>AXIA</strong><span>© 2026 AXIA. Created &amp; designed by ASMAA. All rights reserved.</span><span class="signature">ASMAA</span></footer>
+<div class="modal-back" id="modalBack"></div>
+<section class="story-modal" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="storyTitle">
+<div class="modal-star">✦</div><h2 id="storyTitle">The Story of AXIA</h2><div class="modal-sub">A VISION BUILT FROM EXPERIENCE</div>
+<p>My name is Asmaa, the founder and designer of AXIA. I created AXIA from the ground up, inspired by my own experience with the challenges of learning over the years.</p>
+<p>Those experiences led me to one question: how can learning become easier, more enjoyable, and more meaningful for every student?</p>
+<p>AXIA is more than a program. It is an educational opportunity designed to support students, encourage curiosity, and help them gain a wider range of skills while studying — bringing learning and future technology together through thoughtful use of AI.</p>
+<p>My vision is to keep developing AXIA into a space where every student can learn, understand, explore, and grow with confidence.</p>
+<div class="story-sign"><b>ASMAA</b><span>Founder &amp; Designer of AXIA</span></div>
+</section>
+<script>
+const modal=document.getElementById('storyModal'),back=document.getElementById('modalBack');
+function openStory(){modal.classList.add('open');back.classList.add('open')}
+function closeStory(){modal.classList.remove('open');back.classList.remove('open')}
+document.getElementById('storyButton').addEventListener('click',openStory);
+document.getElementById('aboutNav').addEventListener('click',e=>{e.preventDefault();openStory()});
+back.addEventListener('click',closeStory);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeStory();closeTool()}});
+const workspace=document.getElementById('workspace');
+function closeTool(){workspace.classList.remove('show')}
+document.querySelectorAll('.tool-card').forEach(card=>card.addEventListener('click',()=>{
+ document.getElementById('workspaceTitle').textContent=card.dataset.tool;
+ document.getElementById('demoResult').style.display='none';
+ workspace.classList.add('show');workspace.scrollIntoView({behavior:'smooth',block:'center'});
+}));
+document.getElementById('closeWorkspace').addEventListener('click',closeTool);
+document.getElementById('runDemo').addEventListener('click',()=>{document.getElementById('demoResult').style.display='block'});
+</script>
+</body></html>
