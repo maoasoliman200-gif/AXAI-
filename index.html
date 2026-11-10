@@ -93,6 +93,56 @@ document.querySelectorAll('.tool-card').forEach(card=>card.addEventListener('cli
  workspace.classList.add('show');workspace.scrollIntoView({behavior:'smooth',block:'center'});
 }));
 document.getElementById('closeWorkspace').addEventListener('click',closeTool);
-document.getElementById('runDemo').addEventListener('click',()=>{document.getElementById('demoResult').style.display='block'});
+const runButton = document.getElementById('runDemo');
+const promptInput = document.getElementById('prompt');
+const resultBox = document.getElementById('demoResult');
+
+runButton.addEventListener('click', async () => {
+  const question = promptInput.value.trim();
+
+  if (!question) {
+    resultBox.style.display = 'block';
+    resultBox.textContent = 'Please enter your question first.';
+    return;
+  }
+
+  const toolName = document.getElementById('workspaceTitle').textContent;
+
+  runButton.disabled = true;
+  runButton.textContent = 'Thinking...';
+
+  resultBox.style.display = 'block';
+  resultBox.textContent = 'AXIA is preparing your answer...';
+
+  try {
+    const response = await fetch(
+      'https://axia-ai-bridge.maoasoliman200.workers.dev/',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          question: `AXIA tool: ${toolName}. Student question: ${question}`
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Request failed');
+    }
+
+    resultBox.textContent = data.answer;
+
+  } catch (error) {
+    resultBox.textContent =
+      'Sorry, AXIA could not connect. Please try again.';
+  } finally {
+    runButton.disabled = false;
+    runButton.textContent = 'Continue';
+  }
+});
 </script>
 </body></html>
